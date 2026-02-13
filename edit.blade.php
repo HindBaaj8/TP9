@@ -1,16 +1,14 @@
-<h1>Modifier Participant</h1>
+<h1>Modifier Speaker</h1>
 
-<form action="/participants/{{ $participant->id }}" method="POST">
+<form action="/speakers/{{ $speaker->id }}" method="POST">
     @csrf
     @method('PUT')
 
-    <label>First Name:</label>
-    <input type="text" name="first_name" value="{{ $participant->first_name }}"><br>
-    <label>Last Name:</label>
-    <input type="text" name="last_name" value="{{ $participant->last_name }}"><br>
+    <label>Name:</label>
+    <input type="text" name="name" value="{{ $speaker->name }}"><br>
+    <label>Bio:</label>
+    <textarea name="bio">{{ $speaker->bio }}</textarea><br>
     <label>Email:</label>
-    <input type="email" name="email" value="{{ $participant->email }}"><br>
-    <label>Phone:</label>
-    <input type="text" name="phone" value="{{ $participant->phone }}"><br>
+    <input type="email" name="email" value="{{ $speaker->email }}"><br>
     <button type="submit">Modifier</button>
 </form>

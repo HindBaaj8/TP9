@@ -1,8 +1,8 @@
-<h1>Liste des Participants</h1>
+<h1>Liste des Speakers</h1>
 
-<a href="/participants/create">Créer un participant</a>
+<a href="/speakers/create">Créer un speaker</a>
 
-<form action="/participants" method="GET">
+<form action="/speakers" method="GET">
     <input type="text" name="search" placeholder="Rechercher..." value="{{ request('search') }}">
     <button type="submit">Rechercher</button>
 </form>
@@ -10,23 +10,19 @@
 <table border="1" cellpadding="5">
     <thead>
         <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Name</th>
             <th>Email</th>
-            <th>Phone</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-    @foreach($participants as $participant)
+    @foreach($speakers as $speaker)
         <tr>
-            <td>{{ $participant->first_name }}</td>
-            <td>{{ $participant->last_name }}</td>
-            <td>{{ $participant->email }}</td>
-            <td>{{ $participant->phone }}</td>
+            <td>{{ $speaker->name }}</td>
+            <td>{{ $speaker->email }}</td>
             <td>
-                <a href="/participants/{{ $participant->id }}/edit">Modifier</a>
-                <form action="/participants/{{ $participant->id }}" method="POST" style="display:inline;">
+                <a href="/speakers/{{ $speaker->id }}/edit">Modifier</a>
+                <form action="/speakers/{{ $speaker->id }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
                     <button type="submit" onclick="return confirm('Supprimer ?')">Supprimer</button>
