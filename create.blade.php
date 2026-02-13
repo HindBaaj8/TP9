@@ -1,25 +1,14 @@
-<h1>Créer un événement</h1>
+<h1>Créer un participant</h1>
 
-<form method="POST" action="/events">
+<form action="/participants" method="POST">
     @csrf
-    <label>Title:</label>
-    <input type="text" name="title"><br>
-
-    <label>Description:</label>
-    <textarea name="description"></textarea><br>
-
-    <label>Date:</label>
-    <input type="date" name="date"><br>
-
-    <label>Location:</label>
-    <input type="text" name="location"><br>
-
-    <label>Speakers:</label><br>
-    @foreach($speakers as $speaker)
-        <input type="checkbox" name="speakers[]" value="{{ $speaker->id }}">
-        {{ $speaker->name }}<br>
-    @endforeach
-
+    <label>First Name:</label>
+    <input type="text" name="first_name"><br>
+    <label>Last Name:</label>
+    <input type="text" name="last_name"><br>
+    <label>Email:</label>
+    <input type="email" name="email"><br>
+    <label>Phone:</label>
+    <input type="text" name="phone"><br>
     <button type="submit">Créer</button>
 </form>
-<a href="/events">Retour</a>
